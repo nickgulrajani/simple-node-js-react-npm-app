@@ -1,8 +1,10 @@
 pipeline {
     agent {
         docker {
+            
+            args 'sudo -i -p 3000:3000'           
             image 'node:6-alpine'
-            args 'sudo -i -p 3000:3000'
+            
         }
     }
     environment {
