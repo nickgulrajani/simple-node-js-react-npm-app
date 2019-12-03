@@ -10,9 +10,11 @@ pipeline {
         CI = 'true'
     }
     stages {
+        
         stage('Build') {
-            steps {
-                sh './bin/sudo npm install'
+              sh '''
+              npm install
+              '''
             }
         }
         stage('Test') {
