@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 echo $PATH
+SET PATH=$PATH:/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner
 echo 'The following "npm" command (if executed) installs the "cross-env"'
 echo 'dependency into the local "node_modules" directory, which will ultimately'
 echo 'be stored in the Jenkins home directory. As described in'
@@ -18,5 +19,4 @@ echo 'The following "npm" command tests that your simple Node.js/React'
 echo 'application renders satisfactorily. This command actually invokes the test'
 echo 'runner Jest (https://facebook.github.io/jest/).'
 set -x
-/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner
 npm test
