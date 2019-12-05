@@ -8,10 +8,11 @@ pipeline {
     environment {
         CI = 'true'
         HOME = '.'
-        PATH = '/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/' 
+       
+        PATH = "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin:$PATH"
         
     }
-    
+   
             
     stages {
         
