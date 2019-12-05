@@ -41,20 +41,16 @@ stage('Sonarqube') {
             scannerHome = tool 'sonar'
             }
     
-       steps {
-       sh 'echo "$PATH';  
-       }    
         steps {
-        withSonarQubeEnv('sonar') {
+            sh 'echo "$PATH"'       
+            withSonarQubeEnv('sonar') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
     }
 }             
         
         
-        
-        
-        
+             
         
         
         stage('Deliver') {
