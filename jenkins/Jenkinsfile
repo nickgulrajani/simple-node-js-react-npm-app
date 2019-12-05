@@ -10,6 +10,8 @@ pipeline {
         HOME = '.'
     }
        
+    
+    
             
     stages {
         
@@ -38,6 +40,10 @@ stage('Sonarqube') {
           environment {
             scannerHome = tool 'sonar'
             }
+    
+       steps {
+       sh 'echo "$PATH';  
+       }    
         steps {
         withSonarQubeEnv('sonar') {
             sh "${scannerHome}/bin/sonar-scanner"
