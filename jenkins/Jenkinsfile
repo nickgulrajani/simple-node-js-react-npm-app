@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
             
-                sh '/usr/local/opt/node@8/bin/npm install'
+                sh '/usr/local/bin/npm install'
             }
         }
         
