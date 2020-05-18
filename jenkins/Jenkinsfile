@@ -7,7 +7,6 @@ pipeline {
         
     }
    
-            
     stages {
         
         stage('Clone sources') {
@@ -19,18 +18,16 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'echo "Hello World"'
             
                 sh '/usr/local/bin/npm install'
             }
         }
-        
-        
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
             }
         }
-        
 stage('Sonarqube') {
           environment {
             scannerHome = tool 'sonar'
@@ -43,11 +40,6 @@ stage('Sonarqube') {
         }
     }
 }             
-        
-        
-             
-        
-        
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
