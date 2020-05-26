@@ -18,7 +18,7 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-/usr/local/opt/node@8/bin/npm start &
+/usr/local/bin/npm start &
 sleep 1
 echo $! > .pidfile
 set +x
