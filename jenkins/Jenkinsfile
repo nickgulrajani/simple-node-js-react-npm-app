@@ -41,16 +41,6 @@ pipeline {
     // }
 // }             
 
-stage ('CodeQuality'){
-          steps {
-              dir('/Users/gulrajan/GITHUB/simple-node-js-react-npm-app')
-           {
-              sh "pwd"
-              sh "/opt/sonar-scanner-4.3.0.2102-macosx/bin/sonar-scanner -X" 
-              
-            }
-          }
-      }
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
