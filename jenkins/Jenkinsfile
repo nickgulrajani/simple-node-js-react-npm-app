@@ -46,7 +46,7 @@ stage ('CodeQuality'){
               dir('/Users/gulrajan/GITHUB/simple-node-js-react-npm-app')
            {
               sh "pwd"
-              sh "/opt/sonar-scanner-4.3.0.2102-macosx/bin/sonar-scanner" 
+              sh "/opt/sonar-scanner-4.3.0.2102-macosx/bin/sonar-scanner -X" 
               
             }
           }
