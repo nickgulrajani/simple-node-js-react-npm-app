@@ -36,7 +36,7 @@ stage('Sonarqube') {
         steps {
             sh 'echo "$PATH"'       
             withSonarQubeEnv('sonar') {
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "${scannerHome}/sonar-scanner"
         }
     }
 }             
