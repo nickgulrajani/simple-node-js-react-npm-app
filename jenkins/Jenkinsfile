@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     agent {
         docker {
             image 'node:6-alpine'
@@ -9,7 +10,6 @@ pipeline {
         CI = 'true'
     }
     stages {
-        agent {any}
         stage('Build') {
             steps {
                 sh 'npm install'
