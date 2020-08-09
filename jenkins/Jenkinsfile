@@ -1,47 +1,29 @@
 pipeline {
-    agent any 
-        
+
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
+    }
     environment {
         CI = 'true'
-        HOME = '.'
-        
     }
-   
     stages {
-        
-        stage('Clone sources') {
-        
-        steps {
-        
-        git url: 'https://github.com/nickgulrajani/simple-node-js-react-npm-app/'
-                             }
-        }
         stage('Build') {
+            agent any
             steps {
-                sh 'echo "Hello World"'
-//                sh '/usr/local/bin/npm install'
-                  sh './jenkins/scripts/test.sh'
+                sh 'npm install'
             }
         }
         stage('Test') {
+            agent any 
             steps {
                 sh './jenkins/scripts/test.sh'
             }
         }
-//stage('Sonarqube') {
-//          environment {
- //           scannerHome = tool 'sonar'
- //           }
-    
-  //      steps {
-   //         sh 'echo "$PATH"'       
-    //        withSonarQubeEnv('sonar') {
-     //       sh "${scannerHome}/sonar-scanner"
-      //  }
-    // }
-// }             
-
         stage('Deliver') {
+            agent any
             steps {
                 sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
